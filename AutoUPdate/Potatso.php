@@ -1,27 +1,37 @@
 <?php
 //------------Start-------------//
+header("cache-control:no-cache,must-revalidate");//No-Cache
 header("Content-Type:text/html;charset=UTF-8");//UTF-8
 //-------------通用-------------//
 $NAME = "UPlus";            //名称
 //-------------文件-------------//
 $DefaultFile = "http://7xpphx.com1.z0.glb.clouddn.com/Proxy/File/Default.txt";
+$DefaultFile  = $DefaultFile . '?Cache='.time();
 $Default = fopen($DefaultFile,"r");
 $ProxyFile = "http://7xpphx.com1.z0.glb.clouddn.com/Proxy/File/Proxy.txt";
+$ProxyFile  = $ProxyFile . '?Cache='.time();
 $Proxy = fopen($ProxyFile,"r");
 $GFWListFile = "http://7xpphx.com1.z0.glb.clouddn.com/Proxy/File/GFWList.txt";
+$GFWListFile  = $GFWListFile . '?Cache='.time();
 $GFWList = fopen($GFWListFile,"r");
 $DIRECTFile = "http://7xpphx.com1.z0.glb.clouddn.com/Proxy/File/DIRECT.txt";
+$DIRECTFile  = $DIRECTFile . '?Cache='.time();
 $DIRECT = fopen($DIRECTFile,"r");
 $REJECTFile = "http://7xpphx.com1.z0.glb.clouddn.com/Proxy/File/REJECT.txt";
+$REJECTFile  = $REJECTFile . '?Cache='.time();
 $REJECT = fopen($REJECTFile,"r");
 $PathFile = "http://7xpphx.com1.z0.glb.clouddn.com/Proxy/File/Path.txt";
+$PathFile  = $PathFile . '?Cache='.time();
 $Path = fopen($PathFile,"r");
 $KEYWORDFile = "http://7xpphx.com1.z0.glb.clouddn.com/Proxy/File/KEYWORD.txt";
+$KEYWORDFile  = $KEYWORDFile . '?Cache='.time();
 $KEYWORD = fopen($KEYWORDFile,"r");
 $IPCIDRFile = "http://7xpphx.com1.z0.glb.clouddn.com/Proxy/File/IPCIDR.txt";
+$IPCIDRFile  = $IPCIDRFile . '?Cache='.time();
 $IPCIDR = fopen($IPCIDRFile,"r");
 //-------------下载-------------//
 $File = "Potatso.Conf";//下载文件名称
+header("cache-control:no-cache,must-revalidate");//No-Cache
 header('Content-type: application/octet-stream; charset=utf8');//下载动作
 header("Accept-Ranges: bytes");
 header('Content-Disposition: attachment; filename='.$File);//名称
@@ -118,4 +128,4 @@ fclose($IPCIDR);
 echo"\r\n#Other\r\n";
 echo"  - GEOIP,CN,DIRECT";
 exit();
-//--------------END-------------//
+//--------------END------------//
