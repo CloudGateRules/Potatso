@@ -1,8 +1,5 @@
 <?php
 
-# 引用Controller控制器模块
-require '../Controller/Controller.php';
-
 # 关闭所有 Notice | Warning 级别的错误
 error_reporting(E_ALL^E_NOTICE^E_WARNING);
 
@@ -10,6 +7,9 @@ error_reporting(E_ALL^E_NOTICE^E_WARNING);
 header("cache-control:no-cache,must-revalidate");
 header("Content-Type:text/html;charset=UTF-8");
 header('Content-Disposition: attachment; filename='.'Potatso.Conf');
+
+# 引用Controller控制器模块
+require '../Controller/Controller.php';
 
 # 检测GET参数
 if(empty($Rule)){$Rule="false";}elseif($Rule=="true"){$Rule="true";}else{$Rule="false";}
@@ -25,6 +25,13 @@ if(empty($Flag2)){$Flag2="NONE2";}else{$Flag2=$Flag2;}
 if(empty($Flag3)){$Flag3="NONE3";}else{$Flag3=$Flag3;}
 if(empty($Flag4)){$Flag4="NONE4";}else{$Flag4=$Flag4;}
 if(empty($Flag5)){$Flag5="NONE5";}else{$Flag5=$Flag5;}
+
+# 字符串分割数组
+$Config1Explode = (explode(",",$Config1));
+$Config2Explode = (explode(",",$Config2));
+$Config3Explode = (explode(",",$Config3));
+$Config4Explode = (explode(",",$Config4));
+$Config5Explode = (explode(",",$Config5));
 
 # 判断GET参数
 if($Rule=="true"){$AdvancedCURLF=$BasicCURLF;}elseif($Rule=="false"){$AdvancedCURLF=$AdvancedCURLF;}
